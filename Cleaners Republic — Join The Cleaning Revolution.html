@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Cleaners Republic — Join The Cleaning Revolution</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Anton&family=Work+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --cream:#F7F1E3;
+    --paper:#FFFDF8;
+    --ink:#1A1A1A;
+    --red:#C41E1E;
+    --ember:#E8471B;
+    --gold:#F2C14E;
+    --gold-deep:#D9A62A;
+    --line: rgba(26,26,26,0.12);
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:'Work Sans', sans-serif;
+    font-weight:500;
+    line-height:1.5;
+  }
+  h1,h2,h3, .display{
+    font-family:'Anton', sans-serif;
+    font-weight:400;
+    text-transform:uppercase;
+    letter-spacing:0.5px;
+    line-height:0.95;
+    margin:0;
+  }
+  .eyebrow{
+    font-size:13px;
+    font-weight:700;
+    letter-spacing:3px;
+    text-transform:uppercase;
+    color:var(--red);
+  }
+  a{color:inherit;}
+  img{max-width:100%;display:block;}
+  .wrap{max-width:1160px; margin:0 auto; padding:0 28px;}
+
+  /* ---------- NAV ---------- */
+  nav{
+    position:sticky; top:0; z-index:50;
+    background:var(--paper);
+    border-bottom:3px solid var(--ink);
+  }
+  .navbar{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 28px; max-width:1160px; margin:0 auto;
+  }
+  .brand{
+    font-family:'Anton', sans-serif;
+    font-size:22px;
+    letter-spacing:1px;
+  }
+  .brand span{color:var(--red);}
+  .navlinks{display:flex; gap:28px; font-weight:700; font-size:14px; letter-spacing:0.5px;}
+  .navlinks a{text-decoration:none; border-bottom:2px solid transparent; padding-bottom:2px; transition:border-color .2s;}
+  .navlinks a:hover{border-color:var(--ember);}
+  .nav-cta{
+    background:var(--ink); color:var(--cream); padding:10px 20px;
+    font-weight:800; font-size:13px; letter-spacing:1px; text-decoration:none;
+    border:2px solid var(--ink);
+  }
+  .nav-cta:hover{background:var(--red); border-color:var(--red);}
+  @media(max-width:760px){ .navlinks{display:none;} }
+
+  /* ---------- HERO ---------- */
+  .hero-banner{
+    background:var(--cream);
+    text-align:center;
+    padding:34px 20px 22px;
+    border-bottom:4px solid var(--ink);
+  }
+  .hero-banner h1{
+    font-size:clamp(38px, 7vw, 84px);
+  }
+  .hero-image-wrap{
+    position:relative;
+    border-bottom:4px solid var(--ink);
+  }
+  .hero-image-wrap img{width:100%; display:block;}
+  .hero-tagline{
+    background:var(--cream);
+    text-align:center;
+    padding:20px 20px 30px;
+  }
+  .hero-tagline p{
+    font-family:'Anton', sans-serif;
+    text-transform:uppercase;
+    font-size:clamp(16px, 2.6vw, 28px);
+    letter-spacing:0.5px;
+  }
+  .hero-buttons{
+    display:flex; gap:16px; justify-content:center; flex-wrap:wrap; margin-top:18px;
+  }
+  .btn{
+    display:inline-block;
+    padding:16px 30px;
+    font-family:'Anton', sans-serif;
+    text-transform:uppercase;
+    font-size:15px;
+    letter-spacing:1px;
+    text-decoration:none;
+    border:3px solid var(--ink);
+    transition:transform .15s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--red); color:var(--paper);}
+  .btn-secondary{background:var(--paper); color:var(--ink);}
+
+  /* ---------- SUNBURST DIVIDER (signature element) ---------- */
+  .sunburst-divider{
+    position:relative;
+    height:90px;
+    background:var(--ink);
+    overflow:hidden;
+  }
+  .sunburst-divider svg{
+    position:absolute; top:0; left:50%; transform:translateX(-50%);
+    height:100%; width:auto;
+  }
+
+  /* ---------- MANIFESTO ---------- */
+  .manifesto{
+    background:var(--ink);
+    color:var(--cream);
+    padding:80px 0 90px;
+  }
+  .manifesto .wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:60px; align-items:start;
+  }
+  .manifesto h2{
+    font-size:clamp(32px,5vw,54px);
+    color:var(--gold);
+  }
+  .manifesto p{
+    font-size:17px; color:#EDE6D3; max-width:46ch;
+  }
+  .manifesto-stat{
+    display:flex; gap:20px; margin-top:28px;
+  }
+  .stat-block{
+    border-left:3px solid var(--ember);
+    padding-left:14px;
+  }
+  .stat-block .num{
+    font-family:'Anton',sans-serif; font-size:34px; color:var(--gold);
+    display:block;
+  }
+  .stat-block .label{
+    font-size:13px; color:#c9c2ac; letter-spacing:0.5px;
+  }
+  @media(max-width:760px){ .manifesto .wrap{grid-template-columns:1fr;} }
+
+  /* ---------- HOW IT WORKS ---------- */
+  .section{padding:90px 0;}
+  .section-head{text-align:center; max-width:640px; margin:0 auto 56px;}
+  .section-head h2{font-size:clamp(30px,4.5vw,46px); margin-top:10px;}
+  .section-head p{margin-top:16px; font-size:17px; color:#4a4a4a;}
+
+  .steps{
+    display:grid; grid-template-columns:repeat(3,1fr); gap:0;
+    border-top:3px solid var(--ink); border-left:3px solid var(--ink);
+  }
+  .step{
+    border-right:3px solid var(--ink); border-bottom:3px solid var(--ink);
+    padding:36px 28px; background:var(--paper);
+  }
+  .step .step-num{
+    font-family:'Anton',sans-serif; font-size:46px; color:var(--gold-deep);
+    -webkit-text-stroke: 1.5px var(--ink);
+  }
+  .step h3{font-size:22px; margin-top:12px;}
+  .step p{font-size:15px; color:#4a4a4a; margin-top:10px;}
+  @media(max-width:760px){ .steps{grid-template-columns:1fr;} .step{border-right:3px solid var(--ink);} }
+
+  /* ---------- PROMISE / NO COMMISSION ---------- */
+  .promise{
+    background:var(--gold);
+    border-top:4px solid var(--ink); border-bottom:4px solid var(--ink);
+    padding:80px 0;
+  }
+  .promise .wrap{
+    display:grid; grid-template-columns:1.1fr 0.9fr; gap:50px; align-items:center;
+  }
+  .promise h2{font-size:clamp(30px,5vw,50px);}
+  .promise .compare{
+    background:var(--paper); border:3px solid var(--ink); padding:26px;
+  }
+  .compare-row{
+    display:flex; justify-content:space-between; align-items:center;
+    padding:12px 0; border-bottom:2px dashed var(--line);
+    font-weight:700;
+  }
+  .compare-row:last-child{border-bottom:none;}
+  .compare-row .tag{
+    font-size:12px; letter-spacing:1px; background:var(--ink); color:var(--cream);
+    padding:4px 8px;
+  }
+  .compare-row.you .tag{background:var(--red);}
+  @media(max-width:760px){ .promise .wrap{grid-template-columns:1fr;} }
+
+  /* ---------- PRICING ---------- */
+  .pricing-grid{
+    display:grid; grid-template-columns:repeat(4,1fr); gap:0;
+    border-top:3px solid var(--ink); border-left:3px solid var(--ink);
+  }
+  .price-card{
+    border-right:3px solid var(--ink); border-bottom:3px solid var(--ink);
+    padding:30px 22px; background:var(--paper); text-align:center;
+  }
+  .price-card h3{font-size:19px;}
+  .price-card .price{
+    font-family:'Anton',sans-serif; font-size:32px; color:var(--red); margin-top:14px;
+  }
+  .price-card .sub{font-size:13px; color:#666; margin-top:4px;}
+  @media(max-width:900px){ .pricing-grid{grid-template-columns:repeat(2,1fr);} }
+  @media(max-width:520px){ .pricing-grid{grid-template-columns:1fr;} }
+  .pricing-note{
+    text-align:center; margin-top:26px; font-size:14px; color:#555;
+  }
+
+  /* ---------- FOR CLEANERS ---------- */
+  .cleaners-cta{
+    background:var(--red); color:var(--paper);
+    padding:90px 0;
+    border-top:4px solid var(--ink); border-bottom:4px solid var(--ink);
+  }
+  .cleaners-cta .wrap{
+    display:grid; grid-template-columns:1fr 1fr; gap:50px; align-items:center;
+  }
+  .cleaners-cta h2{font-size:clamp(30px,5vw,48px); color:var(--gold);}
+  .cleaners-cta ul{list-style:none; margin:24px 0 0; padding:0;}
+  .cleaners-cta li{
+    padding:10px 0 10px 30px; position:relative; font-size:16px; border-bottom:1px solid rgba(255,255,255,0.2);
+  }
+  .cleaners-cta li:before{
+    content:"✓"; position:absolute; left:0; top:10px; color:var(--gold); font-weight:800;
+  }
+  @media(max-width:760px){ .cleaners-cta .wrap{grid-template-columns:1fr;} }
+
+  /* ---------- COMMUNITY TEASER ---------- */
+  .community{
+    padding:80px 0; text-align:center; background:var(--cream);
+  }
+  .community .badge{
+    display:inline-block; background:var(--ink); color:var(--gold);
+    font-family:'Anton',sans-serif; font-size:13px; letter-spacing:2px;
+    padding:8px 16px; margin-bottom:18px;
+  }
+  .community h2{font-size:clamp(28px,4.5vw,42px); max-width:700px; margin:0 auto;}
+  .community p{max-width:600px; margin:18px auto 0; color:#4a4a4a; font-size:16px;}
+
+  /* ---------- WAITLIST / CONTACT ---------- */
+  .waitlist{
+    background:var(--ink); color:var(--cream); padding:90px 0;
+  }
+  .waitlist .wrap{max-width:640px; text-align:center;}
+  .waitlist h2{font-size:clamp(30px,5vw,46px); color:var(--gold);}
+  .waitlist p{color:#d8d0ba; margin-top:14px; font-size:16px;}
+  form{
+    margin-top:32px; display:flex; flex-direction:column; gap:14px; text-align:left;
+  }
+  label{font-size:13px; font-weight:700; letter-spacing:0.5px; color:var(--gold);}
+  input, select{
+    padding:14px; border:2px solid var(--cream); background:transparent; color:var(--cream);
+    font-family:'Work Sans',sans-serif; font-size:15px;
+  }
+  input::placeholder{color:#a89f86;}
+  .form-submit{
+    margin-top:8px; background:var(--red); color:var(--paper); border:3px solid var(--red);
+    padding:16px; font-family:'Anton',sans-serif; text-transform:uppercase; letter-spacing:1px;
+    font-size:16px; cursor:pointer;
+  }
+  .form-submit:hover{background:var(--ember); border-color:var(--ember);}
+  .form-note{font-size:13px; color:#a89f86; margin-top:14px; text-align:center;}
+
+  /* ---------- FOOTER ---------- */
+  footer{
+    background:var(--paper); padding:40px 0; border-top:3px solid var(--ink);
+  }
+  .footer-row{
+    display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:16px;
+  }
+  .footer-brand{font-family:'Anton',sans-serif; font-size:18px;}
+  .footer-links{display:flex; gap:22px; font-size:13px; font-weight:600;}
+  .footer-links a{text-decoration:none;}
+  .footer-fine{font-size:12px; color:#888; margin-top:20px; text-align:center;}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="navbar">
+    <div class="brand">CLEANERS <span>REPUBLIC</span></div>
+    <div class="navlinks">
+      <a href="#how">How it works</a>
+      <a href="#promise">Our promise</a>
+      <a href="#pricing">Pricing</a>
+      <a href="#cleaners">For cleaners</a>
+      <a href="#community">Community</a>
+    </div>
+    <a href="#waitlist" class="nav-cta">Join waitlist</a>
+  </div>
+</nav>
+
+<header class="hero-banner">
+  <h1>Cleaners Republic</h1>
+</header>
+
+<div class="hero-image-wrap">
+  <img src="assets/hero-image.png" alt="A small team of Cleaners Republic cleaners raising their cleaning tools together on a sunlit Chelsea street">
+</div>
+
+<div class="hero-tagline">
+  <p>Join the cleaning revolution — keep what you earn</p>
+  <div class="hero-buttons">
+    <a href="#waitlist" class="btn btn-primary">Book a clean</a>
+    <a href="#cleaners" class="btn btn-secondary">Join as a cleaner</a>
+  </div>
+</div>
+
+<div class="sunburst-divider">
+  <svg viewBox="0 0 400 90" preserveAspectRatio="xMidYMid slice">
+    <g fill="#F2C14E" opacity="0.9">
+      <polygon points="200,90 185,-40 215,-40"/>
+      <polygon points="200,90 185,-40 215,-40" transform="rotate(15 200 90)"/>
+      <polygon points="200,90 185,-40 215,-40" transform="rotate(30 200 90)"/>
+      <polygon points="200,90 185,-40 215,-40" transform="rotate(45 200 90)"/>
+      <polygon points="200,90 185,-40 215,-40" transform="rotate(-15 200 90)"/>
+      <polygon points="200,90 185,-40 215,-40" transform="rotate(-30 200 90)"/>
+      <polygon points="200,90 185,-40 215,-40" transform="rotate(-45 200 90)"/>
+    </g>
+  </svg>
+</div>
+
+<section class="manifesto">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--gold);">Why we exist</p>
+      <h2>Cleaners keep 100%.<br>Always.</h2>
+    </div>
+    <div>
+      <p>Most cleaning platforms take 20–30% out of every job a cleaner does. We think that's backwards — the person doing the work should be the one who benefits most from it.</p>
+      <p>Cleaners Republic was built in Chelsea on one simple idea: every job is priced fairly by us, and every penny of that price goes to the cleaner. No commission, no hidden cuts, no middleman taking a slice of someone else's hard work.</p>
+      <div class="manifesto-stat">
+        <div class="stat-block"><span class="num">100%</span><span class="label">of every job goes to the cleaner</span></div>
+        <div class="stat-block"><span class="num">0%</span><span class="label">commission, ever</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="how">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">How it works</p>
+      <h2>Booking is simple</h2>
+      <p>From first message to spotless home, here's what happens.</p>
+    </div>
+    <div class="steps">
+      <div class="step">
+        <span class="step-num">01</span>
+        <h3>Tell us what you need</h3>
+        <p>Property size, clean type, and when you'd like it done. We reply within hours, not days.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">02</span>
+        <h3>Get matched &amp; confirmed</h3>
+        <p>We match you with a vetted, DBS-checked cleaner and confirm your booking in writing.</p>
+      </div>
+      <div class="step">
+        <span class="step-num">03</span>
+        <h3>Enjoy a spotless home</h3>
+        <p>Your cleaner arrives, does the work, and keeps every penny they earn. Simple as that.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="promise" id="promise">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow">The Cleaners Republic promise</p>
+      <h2>No commission. No cuts. No catches.</h2>
+      <p style="margin-top:16px; font-size:16px;">A small booking fee is added to your total to cover vetting, insurance, and support — but it never comes out of your cleaner's pay. That's the deal, every time.</p>
+    </div>
+    <div class="compare">
+      <div class="compare-row">
+        <span>Typical platform</span>
+        <span class="tag">TAKES 20–30%</span>
+      </div>
+      <div class="compare-row you">
+        <span>Cleaners Republic</span>
+        <span class="tag">TAKES 0%</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="pricing">
+  <div class="wrap">
+    <div class="section-head">
+      <p class="eyebrow">Chelsea pricing guide</p>
+      <h2>Clear, honest pricing</h2>
+      <p>Every quote is based on your property, not a vague hourly guess. No surprises.</p>
+    </div>
+    <div class="pricing-grid">
+      <div class="price-card">
+        <h3>Studio</h3>
+        <div class="price">£40</div>
+        <div class="sub">standard clean, from</div>
+      </div>
+      <div class="price-card">
+        <h3>1-Bed Flat</h3>
+        <div class="price">£50</div>
+        <div class="sub">standard clean, from</div>
+      </div>
+      <div class="price-card">
+        <h3>2-Bed Flat</h3>
+        <div class="price">£60</div>
+        <div class="sub">standard clean, from</div>
+      </div>
+      <div class="price-card">
+        <h3>3-Bed House</h3>
+        <div class="price">£80</div>
+        <div class="sub">standard clean, from</div>
+      </div>
+    </div>
+    <p class="pricing-note">Deep cleans, end of tenancy, and add-ons (oven, fridge, windows, ironing) available on request. Weekly customers get a low monthly membership instead of a per-visit fee.</p>
+  </div>
+</section>
+
+<section class="cleaners-cta" id="cleaners">
+  <div class="wrap">
+    <div>
+      <p class="eyebrow" style="color:var(--gold);">For cleaners</p>
+      <h2>Fair, guaranteed pricing. Keep it all.</h2>
+      <p style="margin-top:14px; font-size:16px;">Join Cleaners Republic for free and get matched with customers who value fair, honest work.</p>
+    </div>
+    <ul>
+      <li>Free to join — no mandatory fees, ever</li>
+      <li>100% of every job price, paid in full, every time</li>
+      <li>Optional Republic Pro tier for priority jobs &amp; a verified badge</li>
+      <li>Support with DBS checks and insurance guidance</li>
+    </ul>
+  </div>
+</section>
+
+<section class="community" id="community">
+  <span class="badge">Coming soon</span>
+  <h2>Community Cleans — free cleaning for those who need it most</h2>
+  <p>We're building a programme where our Pro cleaners provide free cleans for elderly, disabled, and less fortunate residents — fully funded, so cleaners are always paid in full. Want to be part of it from day one?</p>
+</section>
+
+<section class="waitlist" id="waitlist">
+  <div class="wrap">
+    <p class="eyebrow" style="color:var(--gold);">Chelsea &amp; nearby</p>
+    <h2>Join the waiting list</h2>
+    <p>Spaces are limited while we grow carefully. Tell us what you need and we'll be in touch as soon as a slot opens up.</p>
+    <form onsubmit="event.preventDefault(); alert('Thanks! This form is a template — connect it to your email or booking tool to go live.');">
+      <div>
+        <label for="name">Name</label>
+        <input type="text" id="name" placeholder="Your name" required>
+      </div>
+      <div>
+        <label for="email">Email</label>
+        <input type="email" id="email" placeholder="you@email.com" required>
+      </div>
+      <div>
+        <label for="postcode">Postcode</label>
+        <input type="text" id="postcode" placeholder="e.g. SW10" required>
+      </div>
+      <div>
+        <label for="type">I'm interested in...</label>
+        <select id="type">
+          <option>Booking a clean</option>
+          <option>Joining as a cleaner</option>
+          <option>Both</option>
+        </select>
+      </div>
+      <button class="form-submit" type="submit">Join the waitlist</button>
+    </form>
+    <p class="form-note">No spam, no pressure — just a note when we're ready for you.</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <div class="footer-row">
+      <div class="footer-brand">CLEANERS REPUBLIC</div>
+      <div class="footer-links">
+        <a href="#how">How it works</a>
+        <a href="#pricing">Pricing</a>
+        <a href="#cleaners">For cleaners</a>
+        <a href="#waitlist">Waitlist</a>
+      </div>
+    </div>
+    <p class="footer-fine">© 2026 Cleaners Republic, Chelsea, London. Cleaners keep 100% of every job. Always.</p>
+  </div>
+</footer>
+
+</body>
+</html>
